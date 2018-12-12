@@ -1,0 +1,33 @@
+{
+  "name": "to-do",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "test": "mocha server/**/*.test.js",
+    "test-watch": "nodemon --exec 'npm test'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natepill/To-Do.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natepill/To-Do/issues"
+  },
+  "homepage": "https://github.com/natepill/To-Do#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "expect": "^23.6.0",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "mocha": "^5.2.0",
+    "mongodb": "^2.2.5",
+    "mongoose": "^5.3.13",
+    "supertest": "^3.3.0",
+    "validator": "^10.9.0"
+  }
+}
