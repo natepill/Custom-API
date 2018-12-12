@@ -1,28 +1,41 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema
-const module = require('validator');
-const bcrypt = require('bcryptjs')
+const validator = require('validator');
 
-const User = new Schema({
+// {
+//   email: 'andrew@example.com',
+//   password: 'adpsofijasdfmpoijwerew',
+//   tokens: [{
+//     access: 'auth',
+//     token: 'poijasdpfoimasdpfjiweproijwer'
+//   }]
+// }
 
-  password: {
-    type: String,
-    select: false
-  },
+var User = mongoose.model('User', {
   email: {
     type: String,
-    trim: true,
     required: true,
+    trim: true,
+    minlength: 1,
     unique: true,
     validate: {
       validator: validator.isEmail,
       message: '{VALUE} is not a valid email'
     }
   },
-
-  todos: [{
-    type: Schema.Types.ObjectId,
-    ref: "Todo"
+  password: {
+    type: String,
+    require: true,
+    minlength: 6
+  },
+  tokens: [{
+    access: {
+      type: String,
+      required: true
+    },
+    token: {
+      type: String,
+      required: true
+    }
   }]
 });
 

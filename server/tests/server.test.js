@@ -2,7 +2,7 @@ const expect = require('expect');
 const request = require('supertest');
 const {ObjectID} = require('mongodb');
 
-const {app} = require('./../app');
+const {app} = require('./../server');
 const {Todo} = require('./../models/todo');
 
 const todos = [{
@@ -157,7 +157,7 @@ describe('PATCH /todos/:id', () => {
       .expect((res) => {
         expect(res.body.todo.text).toBe(text);
         expect(res.body.todo.completed).toBe(true);
-        expect(res.body.todo.completedAt).toBeA('Number');
+        expect(res.body.todo.completedAt).toBeA('number');
       })
       .end(done);
   });

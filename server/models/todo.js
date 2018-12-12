@@ -5,8 +5,7 @@ var Todo = mongoose.model('Todo', {
     type: String,
     required: true,
     minlength: 1,
-    trim: true,
-    default: "This is a default message"
+    trim: true
   },
   completed: {
     type: Boolean,

@@ -1,10 +1,20 @@
-var {mongoose} = require('./../server/db/mongoose');
-var {Todo} = require('./../server/models/todo');
-var {User} = require('./../server/models/user');
+const {ObjectID} = require('mongodb');
 
+const {mongoose} = require('./../server/db/mongoose');
+const {Todo} = require('./../server/models/todo');
+const {User} = require('./../server/models/user');
 
-// Todo.findOneAndRemove()  --> only diff is that you can specify what criteria you want to delete by
+// Todo.remove({}).then((result) => {
+//   console.log(result);
+// });
 
-Todo.findByIdAndRemove('5bfa1da6d96c0514fa28bb6f').then((todo) => {
-    console.log(todo);
+// Todo.findOneAndRemove
+// Todo.findByIdAndRemove
+
+// Todo.findOneAndRemove({_id: '57c4610dbb35fcbf6fda1154'}).then((todo) => {
+//
+// });
+
+Todo.findByIdAndRemove('57c4610dbb35fcbf6fda1154').then((todo) => {
+  console.log(todo);
 });
