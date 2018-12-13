@@ -11,7 +11,7 @@ var {User} = require('./models/user');
 var {authenticate} = require('./middleware/authenticate');
 
 var app = express();
-app.set( 'port', ( process.env.PORT || 5000 ));
+const port = process.env.PORT;
 
 app.use(bodyParser.json());
 
@@ -144,9 +144,8 @@ app.delete('/users/me/token', authenticate, (req, res) => {
   });
 });
 
-
-app.listen( app.get( 'port' ), function() {
-  console.log( 'Node server is running on port ' + app.get( 'port' ));
-  });
+app.listen(port, () => {
+  console.log(`Started up at port ${port}`);
+});
 
 module.exports = {app};
